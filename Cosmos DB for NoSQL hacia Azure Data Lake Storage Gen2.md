@@ -778,7 +778,7 @@ WHERE IS_DEFINED(c.fecha)
 ORDER BY c.fecha ASC
 ```
 
-![Comporvacion y Validacion de info en .json](cosmos_Nosql_img/6.%20comprobacion%20y%20validaciones%20de%20info%20de%20los%20documentos.png)
+![Comprobacion y Validacion de info en .json](cosmos_Nosql_img/6.%20comprobacion%20y%20validaciones%20de%20info%20de%20los%20documentos.png)
 
 # **Fase 3. Crear Azure Data Lake Storage Gen2**
 
@@ -800,11 +800,7 @@ datalake/
 
 1. Buscar: `Storage accounts`
     
-    ![image.png](image%2034.png)
-    
 2. Seleccionar **Create**.
-    
-    ![image.png](image%2035.png)
     
 3. Configurar:
     
@@ -816,8 +812,6 @@ datalake/
     Performance: Standard
     Redundancy: LRS
     ```
-    
-    ![image.png](image%2036.png)
     
 4. Antes de crear el recurso, abrir la pestaña **Advanced y activar** `Enable hierarchical namespace`
 5. Mantener:
@@ -839,13 +833,7 @@ datalake/
     
     </aside>
     
-    ![image.png](image%2037.png)
-    
 6. Seleccionar **Review + create**. Luego pulsar en Create.
-    
-    ![image.png](image%2038.png)
-    
-    ![image.png](image%2039.png)
     
 7. Cuando termine, seleccionar **Go to resource**.
     
@@ -853,21 +841,18 @@ datalake/
     > 
 
 ---
+![Crear una cuenta de almacenamiento az data lake storage](cosmos_Nosql_img/7.%20Crear%20la%20cuenta%20de%20almacenamiento%20de%20azure%20data%20lake%20storage%20gen2.png)
+
 
 ## **Paso 2. Crear el contenedor**
 
 1. Abrir la cuenta de almacenamiento.
+
 2. Acceder a **Storage browser**.
-    
-    ![image.png](image%2040.png)
     
 3. Seleccionar **Blob containers**.
     
-    ![image.png](image%2041.png)
-    
 4. Seleccionar **Add container**.
-    
-    ![image.png](image%2042.png)
     
 5. Configurar:
     
@@ -876,23 +861,16 @@ datalake/
     Anonymous access level: Private
     ```
     
-    ![image.png](image%2043.png)
-    
 6. Seleccionar **Create**.
 
-![image.png](image%2044.png)
-
 ---
+![Crear el contenedor](cosmos_Nosql_img/8.%20crear%20el%20contenedor.png)
 
 ## **Paso 3. Crear la estructura inicial**
 
 Dentro del contenedor `datalake`:
 
-![image.png](image%2045.png)
-
 1. Seleccionar **Add directory**.
-    
-    ![image.png](image%2046.png)
     
 2. Crear:
     
@@ -900,11 +878,7 @@ Dentro del contenedor `datalake`:
     raw
     ```
     
-    ![image.png](image%2047.png)
-    
 3. Entrar en `raw`.
-    
-    ![image.png](image%2048.png)
     
 4. Crear:
     
@@ -912,10 +886,6 @@ Dentro del contenedor `datalake`:
     eventos
     ```
     
-    ![image.png](image%2049.png)
-    
-
-![image.png](image%2050.png)
 
 La estructura inicial será:
 
@@ -924,12 +894,11 @@ datalake/
 └── raw/
     └── eventos/
 ```
+![Crear la estructura incial](cosmos_Nosql_img/9.%20crear%20la%20estructura%20inicial%20del%20contenedor%20datalake%20raw%20eventos.png)
 
 Azure Data Factory creará después las carpetas de fecha.
 
 # **Fase 4. Crear Azure Data Factory**
-
-![image.png](image%2051.png)
 
 ---
 
@@ -937,12 +906,8 @@ Azure Data Factory creará después las carpetas de fecha.
 
 1. Buscar: `Data factories`
     
-    ![image.png](image%2052.png)
-    
 2. Seleccionar `Data factories V2` 
 3. **Pulsar en Create**.
-    
-    ![image.png](image%2053.png)
     
 4. Configurar:
     
@@ -953,25 +918,18 @@ Azure Data Factory creará después las carpetas de fecha.
     Version: V2
     ```
     
-    ![image.png](image%2054.png)
-    
 5. No es obligatorio configurar Git.
 6. Seleccionar **Review + create**.
 7. Seleccionar **Create**.
 8. Esperar a que termine el despliegue.
     
-    ![image.png](image%2055.png)
-    
-    ![image.png](image%2056.png)
-    
 9. Seleccionar **Go to resource**.
-    
-    ![image.png](image%2057.png)
-    
+
+![Crear Azure Data Factory](cosmos_Nosql_img/10.%20crear%20el%20data%20factory.png)
+
 10. Seleccionar **Launch Studio**.
-    
-    ![image.png](image%2058.png)
-    
+
+![Azure Data Factory Studio](cosmos_Nosql_img/10.1%20Azure%20data%20factory%20studio.png) 
 
 # **Fase 5. Autorizar a Data Factory sobre ADLS Gen2**
 
