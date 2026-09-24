@@ -718,7 +718,7 @@ GROUP BY Categoria
 ORDER BY VentasNetas DESC;
 ```
 
-![image.png](image%2029.png)
+
 
 #### Ventas por tienda
 
@@ -735,7 +735,7 @@ GROUP BY
 ORDER BY VentasNetas DESC;
 ```
 
-![image.png](image%2030.png)
+
 
 #### Ventas por cliente
 
@@ -758,8 +758,6 @@ ORDER BY VentasNetas DESC;
 ![Consultas de validacion ](Az_sql_db_img/7.%20consultas%20de%20validacion.png)
 
 
-![Validacion ](Az_sql_db_img/7.%20validation%20quer.png)
-
 ## Fase 3. Crear Azure Data Lake Storage Gen2
 
 ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de nombres jerárquico habilitado. Esta característica permite trabajar con contenedores, directorios y archivos como una estructura de Data Lake.
@@ -767,12 +765,11 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
 ### Paso 1. Crear la cuenta de almacenamiento
 
 1. Buscar **Storage accounts**.
-    
-    ![image.png](image%2032.png)
+
     
 2. Seleccionar **Crear**.
     
-    ![image.png](image%2033.png)
+
     
 3. Configurar:
     
@@ -784,8 +781,7 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     Rendimiento(Performance): Standard
     Redundancia: LRS-Locally redundant storage
     ```
-    
-    ![image.png](image%2034.png)
+
     
 4. No pulses todavía **Review + create**. Entra en la pestaña **Advanced** y busca la sección: **`Azure Blob Storage`**y activa:
     
@@ -800,7 +796,6 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     - **Enable network file system v3:** desactivado
     - Resto de opciones: valores predeterminados
         
-        ![image.png](image%2035.png)
         
     - 
 6. Después pulsa **Review + create**.
@@ -815,32 +810,30 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     >         └── ventas_20260626_172000.csv
     > ```
     > 
-    
-    ![image.png](image%2036.png)
+
     
 7. Pulsar en **Create**.
     
-    ![image.png](image%2037.png)
-    
+   
     Pulsa en `Go to resource` para seguir el siguiente paso
     
 
 ---
+
+![Crear la cuenta de almacenamiento Storage accounts](8)
 
 ## Paso 2. Crear el contenedor
 
 1. Abrir la cuenta de almacenamiento (lo que viene despues pulsar en Go to resource).
 2. Acceder a **Storage browser**.
     
-    ![image.png](image%2038.png)
+
     
 3. Seleccionar **Blob containers**.
-    
-    ![image.png](image%2039.png)
+
     
 4. Pulsa **Add container** o **+ Container**.
     
-    ![image.png](image%2040.png)
     
 5. Configura:
     
@@ -849,22 +842,17 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     Anonymous access level: Private (no anonymous access)
     ```
     
-    ![image.png](image%2041.png)
-    
+     
 6. Pulsar en Create.
     
-    ![image.png](image%2042.png)
-    
+ 
 
 ### Paso 3. Crear la estructura inicial
 
 - Dentro del contenedor `datalake`
     
-    ![image.png](image%2043.png)
     
 - Pulsa **Add directory** o **New directory**.
-    
-    ![image.png](image%2044.png)
     
 - Crea el directorio:
     
@@ -872,11 +860,7 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     raw
     ```
     
-    ![image.png](image%2045.png)
-    
 - Entra en raw y crea `ventas`
-    
-    ![image.png](image%2046.png)
     
 - La estructura quedará:
     
@@ -885,14 +869,14 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     └── raw/
         └── ventas/
     ```
-    
-    ![image.png](image%2047.png)
-    
+
 
 > ADF podrá crear automáticamente las subcarpetas de fecha cuando ejecute el pipeline.
 > 
 
 ---
+
+![Crear el contenedor y su estructura](9)
 
 # Fase 4. Crear Azure Data Factory
 
@@ -903,11 +887,11 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
 
 1. Buscar **Data factories**.
     
-    ![image.png](image%2048.png)
+
     
 2. Seleccionar **Create**.
     
-    ![image.png](image%2049.png)
+
     
 3. Configurar:
     
@@ -918,33 +902,31 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     Versión: V2
     ```
     
-    ![image.png](image%2050.png)
-    
+   
 4. No es obligatorio configurar Git para esta práctica.
 5. Pulsar en **Review + create** 
     
-    ![image.png](image%2051.png)
-    
+ 
 6. Pulsar en **Create**.
     
-    ![image.png](image%2052.png)
+  
     
 7. Abrir el recurso. Pulsa en **Go to resource**
-    
-    ![image.png](image%2053.png)
+  
     
 8. Pulsa en adf-practica1
     
-    ![image.png](image%2054.png)
-    
+
 9. Seleccionar **Launch Studio**.
     
-    ![image.png](image%2055.png)
+
     
-    ![image.png](image%2056.png)
+>![Crear Data Factory](10)
     
 
 ---
+
+
 
 # Fase 5. Autorizar a Data Factory sobre ADLS Gen2
 
@@ -956,15 +938,12 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
 > 
 1. Abre `storageaccountpractica1`.
     
-    ![image.png](image%2057.png)
     
 2. En el menú lateral, entra en **Access control (IAM)**.
     
-    ![image.png](image%2058.png)
     
 3. Pulsa **Add → Add role assignment**.
     
-    ![image.png](image%2059.png)
     
 4. Busca y selecciona:
     
@@ -972,15 +951,12 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
     Storage Blob Data Contributor
     ```
     
-    ![image.png](image%2060.png)
     
 5. Pulsa en Next:
     
-    ![image.png](image%2061.png)
     
 6. En **Assign access to**, selecciona: `Managed identity`
     
-    ![image.png](image%2062.png)
     
 7. Pulsa **Select members**.
     
@@ -1072,16 +1048,11 @@ Vuelve a la pestaña de Data Factory Studio:
     Host name in certificate: vacío
     ```
     
-    ![image.png](image%2075.png)
-    
-    ![image.png](image%2076.png)
+
     
 7. Ahora pulsa **Test connection** antes de crear el Linked Service. Si aparece: `Connection successful`pulsa **Create**.
     
-    ![image.png](image%2077.png)
-    
 
-![image.png](image%2078.png)
 
 > La contraseña queda almacenada cifrada dentro del servicio, pero para una solución empresarial debería usarse una identidad administrada o Azure Key Vault.
 > 
@@ -1096,6 +1067,12 @@ Si la prueba falla:
 - Verificar que la base de datos está online
 
 ---
+>![Testear la conexion](Az_sql_db_img/12.%20crear%20un%20linked%20service.png)
+
+
+>![Crear un linked service en data factory](Az_sql_db_img/12.1%20linked%20service%20creado.png)
+
+
 
 # Fase 7. Crear el Linked Service de ADLS Gen2
 
@@ -1161,7 +1138,7 @@ El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de 
 > 
 1.  En Azure Data Factory Abrir la sección **Author**.
     
-    ![image.png](image%2086.png)
+
     
 2. En el panel **Factory Resources pulsa en +**
     
@@ -1173,7 +1150,7 @@ El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de 
     
 4. En el buscador escribe `Azure SQL Database` 
     
-    ![image.png](image%2089.png)
+  
     
 5. Selecciona Continue.
 6. En Set properties introduce:
@@ -1191,23 +1168,18 @@ El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de 
 8. Antes de publicar es aconsejable pulsar en Preview data 
 y verifica que aparecen las filas de `etl.vw_ventas_extraccion`.
     
-    ![image.png](image%2091.png)
-    
-    ![image.png](image%2092.png)
+  
     
 9. En la pestaña **Schema**, confirma que se han importado las columnas.
-    
-    ![image.png](image%2093.png)
+
     
 10. Pulsa **Validate all**. y luego **Publish all.** 
     
-    ![image.png](image%2094.png)
-    
-    ![image.png](image%2095.png)
+  
     
 11. Pulsar en Publish y esperar que salga: `Publishin complete`
     
-    ![image.png](image%2096.png)
+
     
 
 ---
@@ -1225,15 +1197,15 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
 
 1. Ir a Azure Data Studio,  En Author crear un dataset nuevo pulsando en + 
     
-    ![image.png](image%2097.png)
+
     
 2. Elegir `Azure Data Lake Storage Gen2`  y luego pulsar en Continue.
     
-    ![image.png](image%2098.png)
+
     
 3. En **Select Format** elige `DelimitedText`  y luego Continue
     
-    ![image.png](image%2099.png)
+
     
 4. En Set properties: 
     
