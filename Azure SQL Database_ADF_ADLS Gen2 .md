@@ -960,7 +960,7 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
     
 7. Pulsa **Select members**.
     
-    ![image.png](image%2063.png)
+
     
 8. Configura:
     
@@ -969,23 +969,16 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
     Managed identity: Data factory
     Select: adf-practica1
     ```
-    
-    ![image.png](image%2064.png)
+
     
     > Debes pulsar en adf-practica1 para que se mueva a Selected members
     > 
-    
-    ![image.png](image%2065.png)
+
     
 9. Pulsa **Select**.
 10. Termina con **Review + assign** y nuevamente **Review + assign**.
     
-    ![image.png](image%2066.png)
-    
-    ![image.png](image%2067.png)
-    
-    ![image.png](image%2068.png)
-    
+        
     > Este rol permite a la identidad de Data Factory leer, crear, modificar y eliminar archivos o blobs dentro del almacenamiento.
     > 
     
@@ -1005,19 +998,16 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
 
 Vuelve a la pestaña de Data Factory Studio:
 
-![image.png](image%2069.png)
 
 1. Abrir **Manage**.
     
-    ![image.png](image%2070.png)
+  
     
 2. Seleccionar **Linked services**.
-    
-    ![image.png](image%2071.png)
+
     
 3. Seleccionar **New**.
     
-    ![image.png](image%2072.png)
     
 4. Buscar:
     
@@ -1025,11 +1015,8 @@ Vuelve a la pestaña de Data Factory Studio:
     Azure SQL Database
     ```
     
-    ![image.png](image%2073.png)
-    
 5. Pulsar en Azure SQL Database, luego en Continue:
     
-    ![image.png](image%2074.png)
     
 6. Configurar:
     
@@ -1077,15 +1064,10 @@ Si la prueba falla:
 # Fase 7. Crear el Linked Service de ADLS Gen2
 
 1. En Azure Data Factory Studio: Ve a **Manage → Linked services**, seleccionar **New**.
-    
-    ![image.png](image%2079.png)
-    
-    ![image.png](image%2080.png)
+
     
 2. Busca y selecciona: `Azure Data Lake Storage Gen2`
-    
-    ![image.png](image%2081.png)
-    
+        
 3. Pulsar en Continue
 4. Configurar:
     
@@ -1108,17 +1090,13 @@ Si la prueba falla:
 5. En test connection seleccionar: **To linked service**
 6. Pulsar en Test connection y si aparece `Connection succesfull` pulsa en `Create`
     
-    ![image.png](image%2082.png)
-    
-    ![image.png](image%2083.png)
+  
     
 7. Pulsar en Validate all y luego Publish all.
-    
-    ![image.png](image%2084.png)
+
     
 8. Espera al mensaje **Successfully published**. Si no tienes errores te debería salir:
     
-    ![image.png](image%2085.png)
     
     > Tener en cuenta que **Publish all publica todos los cambios pendientes a la vez**, no solamente el elemento que tienes seleccionado. Después de publicarlo, la insignia amarilla debería desaparecer. Los Linked Services publicados podrán ser utilizados posteriormente por los datasets y pipelines.
     > 
@@ -1129,6 +1107,11 @@ Si la prueba falla:
 El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de ADF.
 
 </aside>
+
+>![Crear Linked services ACLS Gen2 testeo conexion](Az_sql_db_img/13.%20testear%20conexin%20del%20linked%20service%20de%20ADLS%20Gen2%20.png)
+
+
+>![Crear Linked services ACLS Gen2 publicado](Az_sql_db_img/14.%20linkedin%20services%20publicados%20satisfactoriamente.png)
 
 ---
 
@@ -1142,11 +1125,9 @@ El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de 
     
 2. En el panel **Factory Resources pulsa en +**
     
-    ![image.png](image%2087.png)
-    
+
 3. Selecciona Dataset 
     
-    ![image.png](image%2088.png)
     
 4. En el buscador escribe `Azure SQL Database` 
     
@@ -1162,8 +1143,7 @@ El conector de ADLS Gen2 puede utilizarse como destino de una actividad Copy de 
     En import schema selecciona: From connection/store
     ```
     
-    ![image.png](image%2090.png)
-    
+
 7. Pulsar en OK.
 8. Antes de publicar es aconsejable pulsar en Preview data 
 y verifica que aparecen las filas de `etl.vw_ventas_extraccion`.
@@ -1226,10 +1206,7 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     
     > Una vez rellenadas las propiedades, pulsa en ok.
     > 
-    
-    ![image.png](image%20100.png)
-    
-    ![image.png](image%20101.png)
+
     
 5. A continuación, dentro del dataset, en Parameters, crea:
     
