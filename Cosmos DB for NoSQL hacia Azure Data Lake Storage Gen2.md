@@ -254,7 +254,6 @@ Esta variación permite observar una característica importante de un modelo doc
     
     Pulsa en Aceptar.
     
-    ![Crear la bbdd](image%2014.png)
     
 
 ---
@@ -942,24 +941,19 @@ Data Factory dispone de una identidad administrada. Esta identidad podrá escrib
 1. Mantener Data Factory Studio abierto en una pestaña.
 2. Abrir otra pestaña de Azure Portal.
 3. Abrir: `storagepractica2`
-    
-    ![image.png](image%2059.png)
-    
+      
 4. Seleccionar:
     
     ```
     Access control (IAM)
     ```
     
-    ![image.png](image%2060.png)
-    
+   
 5. Seleccionar:
     
     ```
     Add → Add role assignment
     ```
-    
-    ![image.png](image%2061.png)
     
 6. Buscar y seleccionar:
     
@@ -967,7 +961,6 @@ Data Factory dispone de una identidad administrada. Esta identidad podrá escrib
     Storage Blob Data Contributor
     ```
     
-    ![image.png](image%2062.png)
     
 7. Seleccionar **Next**.
 8. En **Assign access to**, seleccionar:
@@ -976,11 +969,9 @@ Data Factory dispone de una identidad administrada. Esta identidad podrá escrib
     Managed identity
     ```
     
-    ![image.png](image%2063.png)
     
 9. Seleccionar **Select members**.
     
-    ![image.png](image%2064.png)
     
 10. Configurar:
     
@@ -989,24 +980,18 @@ Data Factory dispone de una identidad administrada. Esta identidad podrá escrib
     Select: adf-practica2
     ```
     
-    ![image.png](image%2065.png)
     
 11. Confirmar la selección.
     
-    ![image.png](image%2066.png)
     
 12. Pulsar en Select.
     
-    ![image.png](image%2067.png)
     
 13. Pulsar en Next.
 14. Seleccionar **Review + assign**.
 15. Seleccionar nuevamente **Review + assign**.
     
-    ![image.png](image%2068.png)
-    
-    ![image.png](image%2069.png)
-    
+      
 16. Esperar uno o dos minutos para que el permiso se propague.
 
 Este rol permite a Data Factory:
@@ -1057,7 +1042,6 @@ En Data Factory Studio:
 1. Seleccionar **Manage**.
 2. Seleccionar **Linked services**.
     
-    ![image.png](image%2070.png)
     
 3. Seleccionar **New**.
 4. Buscar:
@@ -1069,7 +1053,6 @@ En Data Factory Studio:
 5. Seleccionar el conector.
 6. Seleccionar **Continue**.
     
-    ![image.png](image%2071.png)
     
 
 > No seleccionar “Azure Cosmos DB for MongoDB”.
@@ -1083,11 +1066,8 @@ En otra pestaña del portal:
 
 1. Abrir la cuenta de Cosmos DB.
     
-    ![image.png](image%2072.png)
-    
 2. Seleccionar **Keys**.
     
-    ![image.png](image%2073.png)
     
 3. Localizar:
     
@@ -1109,7 +1089,6 @@ Para esta práctica se puede utilizar autenticación por clave.
 
 Vuelve a ADF Studio:
 
-![image.png](image%2074.png)
 
 Configurar:
 
@@ -1123,7 +1102,6 @@ Azure Cosmos DB account name: cosmos-practica2
 Database name: db-eventos
 ```
 
-![image.png](image%2075.png)
 
 Si la interfaz solicita una clave o cadena de conexión:
 
@@ -1140,13 +1118,8 @@ o seleccionar la cuenta desde la suscripción.
     Connection successful
     ```
     
-    ![image.png](image%2076.png)
-    
 3. Seleccionar **Create**.
 
-![image.png](image%2077.png)
-
-![image.png](image%2078.png)
 
 # **Fase 7. Crear el Linked Service de ADLS Gen2**
 
@@ -1178,8 +1151,7 @@ o seleccionar la cuenta desde la suscripción.
     Test connection: To linked service
     ```
     
-    ![image.png](image%2079.png)
-    
+       
 7. Seleccionar **Test connection**.
 8. Resultado esperado:
     
@@ -1187,12 +1159,10 @@ o seleccionar la cuenta desde la suscripción.
     Connection successful
     ```
     
-    ![image.png](image%2080.png)
-    
+     
 9. Seleccionar **Create**.
 10. Luego Vallidate All y despues Publish all.
 
-![image.png](image%2081.png)
 
 # **Fase 8. Crear el dataset de origen**
 
@@ -1207,8 +1177,6 @@ o seleccionar la cuenta desde la suscripción.
 2. Seleccionar **Datasets**.
 3. Seleccionar **New dataset**.
     
-    ![image.png](image%2082.png)
-    
 4. Buscar:
     
     ```
@@ -1218,7 +1186,6 @@ o seleccionar la cuenta desde la suscripción.
 5. Seleccionar el dataset.
 6. Seleccionar **Continue**.
     
-    ![image.png](image%2083.png)
     
 7. Configurar:
     
@@ -1232,14 +1199,11 @@ o seleccionar la cuenta desde la suscripción.
     > Selecciona **None** porque Cosmos DB es documental y los eventos pueden tener campos diferentes. En esta práctica queremos copiar los documentos hacia la zona `raw` sin imponer un esquema fijo ni crear un mapeo cerrado. El conector de Cosmos DB permite exportar los documentos JSON tal como están y trabajar con un esquema vacío.
     > 
     
-    ![image.png](image%2084.png)
-    
 8. Seleccionar **OK**.
 9. Antes de publicarlo, haz esta comprobación:
     1. Pulsa **Preview data**.
     2. Verifica que aparecen los documentos del contenedor `eventos`.
         
-        ![image.png](image%2085.png)
         
         También pueden aparecer campos opcionales.
         
@@ -1256,7 +1220,6 @@ o seleccionar la cuenta desde la suscripción.
         Publish all
         ```
         
-        ![image.png](image%2086.png)
         
 
 ---
@@ -1278,7 +1241,6 @@ o seleccionar la cuenta desde la suscripción.
     Azure Data Lake Storage Gen2
     ```
     
-    ![image.png](image%2087.png)
     
 4. Elegir el formato:
     
@@ -1286,7 +1248,6 @@ o seleccionar la cuenta desde la suscripción.
     JSON
     ```
     
-    ![image.png](image%2088.png)
     
 5. Seleccionar **Continue**.
 6. Configurar:
@@ -1299,9 +1260,7 @@ o seleccionar la cuenta desde la suscripción.
     File: vacío inicialmente
     Import schema: None
     ```
-    
-    ![image.png](image%2089.png)
-    
+        
 7. Seleccionar **OK**.
 
 ---
@@ -1314,7 +1273,6 @@ Crear: `pDirectorio`.Tipo: `String`
 
 Crear: `pArchivo` .Tipo: `String`
 
-![image.png](image%2090.png)
 
 ---
 
@@ -1324,7 +1282,6 @@ Abrir la pestaña **Connection**. En **Directory**, seleccionar **Add dynamic
 
 En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset().pArchivo`
 
-![image.png](image%2091.png)
 
 ---
 
@@ -1332,7 +1289,6 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
 2. corregir cualquier error;
 3. seleccionar **Publish all**.
     
-    ![image.png](image%2092.png)
     
 
 # **Fase 10. Crear el pipeline**
@@ -1342,15 +1298,12 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
 1. En **Author**, seleccionar **Pipelines**.
 2. Seleccionar **New pipeline**.
     
-    ![image.png](image%2093.png)
-    
 3. Cambiar el nombre a:
     
     ```
     pl_cosmos_eventos_to_adls_raw
     ```
     
-    ![image.png](image%2094.png)
     
 
 ---
@@ -1363,20 +1316,17 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
     Copy data
     ```
     
-    ![image.png](image%2095.png)
     
 2. Arrastrar la actividad al lienzo.
     
-    ![image.png](image%2096.png)
-    
+   
 3. En la pestaña **General**, cambiar el nombre a:
     
     ```
     cp_eventos_to_raw
     ```
     
-    ![image.png](image%2097.png)
-    
+   
 
 ---
 
@@ -1389,9 +1339,6 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
     Source dataset: ds_cosmos_eventos
     ```
     
-    ![image.png](image%2098.png)
-    
-    ![image.png](image%2099.png)
     
     > 
     > 
@@ -1407,9 +1354,7 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
     > Seleccionar **Container** significa que se leerán los documentos del contenedor completo. No necesitas una consulta personalizada en esta primera carga. Azure Data Factory permite exportar los documentos de Cosmos DB hacia un destino JSON sin imponer un esquema tabular
     > 
     > Antes de continuar, pulsa **Preview data** y verifica que aparecen los documentos. 
-    > 
-    > ![image.png](image%20100.png)
-    > 
+      > 
     > Después pasa a **Sink**, donde seleccionarás `ds_adls_raw_eventos_json` e introducirás los valores de los parámetros del directorio y del archivo. No configures nada en **Mapping** para esta copia sin transformación.
     > 
 
@@ -1424,12 +1369,10 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
     Sink dataset: ds_adls_raw_eventos_json
     ```
     
-    ![image.png](image%20101.png)
     
 
 Aparecerán los parámetros del dataset.
 
-![image.png](image%20102.png)
 
 - **pDirectorio**
 
@@ -1487,8 +1430,6 @@ No convertir tipos.
 > En el Ejercicio 1 era razonable importar el esquema porque el origen era una vista relacional estable. En este ejercicio se evita fijar el esquema para respetar la naturaleza documental de Cosmos DB.
 > 
 
-![image.png](image%20103.png)
-
 ---
 
 ## **Paso 6. Configurar el formato de escritura**
@@ -1499,7 +1440,6 @@ En la pestaña Sink o en las propiedades de formato:
 File pattern: Set of objects
 ```
 
-![image.png](image%20104.png)
 
 El patrón `Set of objects` produce un documento por línea.
 
@@ -1528,8 +1468,7 @@ El patrón `Set of objects` produce un documento por línea.
     Status: Succeeded
     ```
     
-    ![image.png](image%20105.png)
-    
+   
 4. Abrir la salida de la actividad Copy.
 5. Revisar métricas similares a:
     
@@ -1635,7 +1574,6 @@ Después de confirmar que funciona:
 2. Seleccionar **Publish all**;
 3. Confirmar con **Publish**.
 
-![image.png](image%20106.png)
 
 # **Fase 11. Verificar el archivo en ADLS Gen2**
 
@@ -1661,15 +1599,12 @@ Después de confirmar que funciona:
     eventos_AAAAMMDD_HHMMSS.json
     ```
     
-    ![image.png](image%20107.png)
     
 6. Seleccionar **View/Edit** o descargarlo.
     
-    ![image.png](image%20108.png)
     
 7. Comprobar que contiene documentos JSON.
     
-    ![image.png](image%20109.png)
     
 
 ---
@@ -1683,7 +1618,6 @@ SELECT VALUE COUNT(1)
 FROM c
 ```
 
-![image.png](image%20110.png)
 
 ### **Validación en Data Factory**
 
@@ -1694,10 +1628,6 @@ Rows read: 30
 Rows copied: 30
 Status: Succeeded
 ```
-
-![image.png](image%20111.png)
-
-![image.png](image%20112.png)
 
 ---
 
@@ -1714,7 +1644,6 @@ Después de validar el pipeline se puede programar una carga diaria.
 2. Seleccionar **Add trigger**.
 3. Seleccionar **New/Edit**.
     
-    ![image.png](image%20113.png)
     
 4. Crear un trigger de tipo:
     
@@ -1731,7 +1660,6 @@ Después de validar el pipeline se puede programar una carga diaria.
     Time zone: la indicada para el curso
     ```
     
-    ![image.png](image%20114.png)
     
 6. Seleccionar **OK**.
 7. Confirmar la asociación con el pipeline.
@@ -1742,8 +1670,7 @@ Después de validar el pipeline se puede programar una carga diaria.
     Manage → Triggers
     ```
     
-    ![image.png](image%20115.png)
-    
+   
     El trigger debe aparecer en estado:
     
     ```
@@ -1776,15 +1703,12 @@ pl_cosmos_eventos_to_adls_raw
 1. Abrir Data Factory Studio.
 2. Seleccionar **Monitor**.
     
-    ![image.png](image%20116.png)
     
 3. Seleccionar **Pipeline runs**.
     
-    ![image.png](image%20117.png)
     
 4. Abrir la pestaña **Triggered**.
     
-    ![image.png](image%20118.png)
     
 5. Seleccionar **Refresh** si no aparece todavía.
 6. Localizar:
@@ -1793,11 +1717,8 @@ pl_cosmos_eventos_to_adls_raw
     pl_cosmos_eventos_to_adls_raw
     ```
     
-    ![image.png](image%20119.png)
     
 7. Revisar **Status**.
-    
-    ![image.png](image%20120.png)
     
     Estados habituales:
     
@@ -1873,10 +1794,7 @@ pl_cosmos_eventos_to_adls_raw
         - el nombre del pipeline, o
         - en Activity Runs verás la actividad `cp_eventos_to_raw` pulsa en **Details**
             
-            ![image.png](image%20121.png)
-            
-            ![image.png](image%20122.png)
-            
+             
     6. Tambien puedes pulsar sobre el icono de **Output**. Allí podrás ver:
         
         ```
@@ -1889,10 +1807,7 @@ pl_cosmos_eventos_to_adls_raw
         Throughput
         ```
         
-        ![image.png](image%20123.png)
-        
-        ![image.png](image%20124.png)
-        
+       
         ```json
         {
         	"dataRead": 19311,
@@ -1999,8 +1914,6 @@ Abrir:
 Monitor → Trigger runs
 ```
 
-![image.png](image%20125.png)
-
 Comprobar:
 
 - nombre del trigger;
@@ -2023,21 +1936,13 @@ Para que se ejecute automáticamente:
 - el pipeline debe estar publicado;
 - los Linked Services deben seguir siendo válidos.
 
-![image.png](image%20126.png)
-
-![image.png](image%20127.png)
-
-![image.png](image%20128.png)
-
 # **Consideración importante sobre la zona raw**
 
-![image.png](image%20129.png)
 
 ---
 
 # **Esquema flexible y evolución**
 
-![image.png](image%20130.png)
 
 ---
 
@@ -2047,13 +1952,11 @@ Para que se ejecute automáticamente:
 
 # **Diferencias con el Ejercicio 1**
 
-![image.png](image%20131.png)
 
 ---
 
 # **Arquitectura final implementada**
 
-![image.png](image%20132.png)
 
 <aside>
 

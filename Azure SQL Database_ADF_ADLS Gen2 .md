@@ -648,8 +648,7 @@ El editor de consultas de Azure Portal permite conectarse a Azure SQL Database y
     - el esquema `etl`
     - la vista `etl.vw_ventas_extraccion`
     - índices y datos de ejemplo.
-        
-        ![image.png](image%2022.png)
+    
         
 - Ejecuta también estas comprobaciones:
     
@@ -657,32 +656,27 @@ El editor de consultas de Azure Portal permite conectarse a Azure SQL Database y
     SELECT COUNT(*) AS Clientes FROM dbo.Clientes;
     ```
     
-    ![image.png](image%2023.png)
     
     ```sql
     SELECT COUNT(*) AS Productos FROM dbo.Productos;
     ```
     
-    ![image.png](image%2024.png)
     
     ```sql
     SELECT COUNT(*) AS Tiendas FROM dbo.Tiendas;
     ```
     
-    ![image.png](image%2025.png)
     
     ```sql
     SELECT COUNT(*) AS Ventas FROM dbo.Ventas;
     ```
     
-    ![image.png](image%2026.png)
     
     ```sql
     SELECT TOP (10) *
     FROM etl.vw_ventas_extraccion;
     ```
     
-    ![image.png](image%2027.png)
     
 
 ### Resultado que debe devolver la validación
@@ -701,7 +695,6 @@ SELECT COUNT(*) AS FilasVista
 FROM etl.vw_ventas_extraccion;
 ```
 
-![image.png](image%2028.png)
 
 ---
 
@@ -820,7 +813,7 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
 
 ---
 
-![Crear la cuenta de almacenamiento Storage accounts](8)
+![Crear la cuenta de almacenamiento data lake storage account](Az_sql_db_img/8.%20creacion%20del%20datalake%20storage%20.png)
 
 ## Paso 2. Crear el contenedor
 
@@ -845,7 +838,7 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
      
 6. Pulsar en Create.
     
- 
+![Crear el contenedor de datalake](Az_sql_db_img/9.%20Creacion%20del%20container%20del%20datalake.png)
 
 ### Paso 3. Crear la estructura inicial
 
@@ -876,7 +869,7 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
 
 ---
 
-![Crear el contenedor y su estructura](9)
+![Crear la estructura incial del contenedor](Az_sql_db_img/10.%20Crear%20estructura%20inicial%20del%20contenedor.png)
 
 # Fase 4. Crear Azure Data Factory
 
@@ -921,8 +914,10 @@ ADLS Gen2 se implementa mediante una cuenta de almacenamiento con el espacio de 
     
 
     
->![Crear Data Factory](10)
-    
+>![Creación de Data Factory](Az_sql_db_img/11.%20creacion%20de%20data%20factory%20V2.png)
+
+>![data factory desplegado](Az_sql_db_img/11.1%20data%20factory%20lanzado.png)
+
 
 ---
 
@@ -993,6 +988,9 @@ Data Factory dispone de una identidad administrada. Esta identidad puede recibir
     
 
 ---
+
+>![Asignar el role de contribuidor sobre archivos y blobs a la entidad de data factory](Az_sql_db_img/11.5%20asiganar%20role%20de%20contribuidor%20a%20la%20identidad%20de%20data%20factory%20para%20leer,%20crear%20modificiar%20eliminar%20blobs%20o%20archivos%20dentor%20del%20almacenamiento.png)
+
 
 ## Fase 6. Crear el Linked Service de Azure SQL Database
 
@@ -1214,12 +1212,7 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     pDirectorio   String
     pArchivo      String
     ```
-    
-    ![image.png](image%20102.png)
-    
-    ![image.png](image%20103.png)
-    
-    ![image.png](image%20104.png)
+
     
 6. En **Connection**, configura:
     
@@ -1228,7 +1221,7 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     File:      @dataset().pArchivo
     ```
     
-    ![image.png](image%20105.png)
+
     
     El pipeline proporcionará después valores dinámicos como:
     
@@ -1272,21 +1265,17 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     
 5. Arrástra “Copy data” al lienzo. Selecciona la actividad y, en la pestaña **General**, cambia su nombre a: `cp_vw_ventas_to_raw`
     
-    ![image.png](image%20111.png)
     
-    ![image.png](image%20112.png)
     
 6. Configurar el origen. Con la actividad seleccionada, abre la pestaña **Source**.
     
-    ![image.png](image%20113.png)
     
 7. Selecciona: `Source dataset: ds_sql_vw_ventas_extraccion`
     
-    ![image.png](image%20114.png)
     
 8. En **Use query** o **Query type**, selecciona: `Query`
     
-    ![image.png](image%20115.png)
+
     
 9. Introduce esta consulta:
     
@@ -1310,7 +1299,6 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     > - Eliminación de registros.
     > - Cálculos analíticos adicionales.
     
-    ![image.png](image%20116.png)
     
 10. **Configurar el destino**. Abre la pestaña **Sink** y selecciona:
     
@@ -1318,7 +1306,6 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     Sink dataset: ds_adls_raw_ventas_csv
     ```
     
-    ![image.png](image%20117.png)
     
     Aparecerán los parámetros del dataset. 
     
@@ -1330,10 +1317,6 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
         formatDateTime(utcNow(),'yyyy-MM-dd')
     )
     ```
-    
-    ![image.png](image%20118.png)
-    
-    ![image.png](image%20119.png)
     
 12. `pArchivo`.Pulsa **Add dynamic content** y escribe:
     
@@ -1355,39 +1338,30 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
                 └── ventas_20260629_153000.csv
     ```
     
-    ![image.png](image%20120.png)
     
 13. Configurar el mapeo. En la pestaña **Mapping**:
     
-    ![image.png](image%20121.png)
     
 14. Pulsa **Import schemas y comprueba que aparecen las columnas de origen y destino.**
-    
-    ![image.png](image%20122.png)
-    
-    ![image.png](image%20123.png)
-    
+
 15. Verifica especialmente que se incluya:
     
     ```
     FechaExtraccionUtc
     ```
     
-    ![image.png](image%20124.png)
+
     
     > También deben aparecer columnas como `VentaId`, `NumeroFactura`, `FechaVenta`, `NombreCliente`, `NombreProducto`, `Cantidad`, `ImporteNeto`, etc.
     > 
 16. Probar el pipeline. Pulsa en Vallidate:
     
-    ![image.png](image%20125.png)
     
 17. Si no hay errores, pulsa **Debug**.
     
-    ![image.png](image%20126.png)
     
 18. Espera a que termine la actividad. El resultado esperado es: Status Succeeded
     
-    ![image.png](image%20127.png)
     
 19. Después de comprobar que funciona: `Vallidate all → Publish all`
 
@@ -1399,16 +1373,11 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
 
 1. Abrir la cuenta de almacenamiento.
     
-    ![image.png](image%20128.png)
     
 2. Acceder a **Storage browser**.
     
-    ![image.png](image%20129.png)
     
 3. Abrir el contenedor: `datalake`
-    
-    ![image.png](image%20130.png)
-    
 4. Navegar hasta:
     
     ```
@@ -1419,7 +1388,6 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     
     y comprueba que existe un archivo: `ventas_AAAAMMDD_HHMMSS.csv`
     
-    ![image.png](image%20131.png)
     
 5. Descargarlo o visualizarlo (Pulsar en View/Edit).
 6. Comprobar que:
@@ -1429,19 +1397,9 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
 - Los importes aparecen correctamente.
 - Incluye `FechaExtraccionUtc`.
     
-    ![image.png](image%20132.png)
-    
-    ![image.png](image%20133.png)
-    
-    ![image.png](image%20134.png)
     
     O si lo quieres descargar en csv y vsualizarlo en excel o vscode:
     
-    ![image.png](image%20135.png)
-    
-    ![image.png](image%20136.png)
-    
-    ![image.png](image%20137.png)
     
 
 ---
@@ -1470,8 +1428,6 @@ Rows read: 30
 Rows copied: 30
 ```
 
-![image.png](image%20138.png)
-
 ## Validación en el archivo
 
 El CSV debe contener:
@@ -1480,8 +1436,6 @@ El CSV debe contener:
 1 fila de encabezados
 30 filas de datos
 ```
-
-![image.png](image%20139.png)
 
 ---
 
@@ -1492,11 +1446,9 @@ Después de validar el pipeline se puede programar una carga diaria. Para ello d
 1. Abrir el pipeline.
 2. Seleccionar **Add trigger**.
     
-    ![image.png](image%20140.png)
     
 3. Seleccionar **New/Edit**.
     
-    ![image.png](image%20141.png)
     
 4. Crear un trigger de tipo **Schedule**.
 5. Ejemplo:
@@ -1508,22 +1460,14 @@ Después de validar el pipeline se puede programar una carga diaria. Para ello d
     Zona horaria: la indicada para el curso
     ```
     
-    ![image.png](image%20142.png)
-    
 6. Pulsar en OK
     
-    ![image.png](image%20143.png)
     
 7. Pulsa OK otra vez.
 8. Pulsa **Publish all → Publish**.
     
-    ![image.png](image%20144.png)
     
 9. Después puedes comprobarlo en: Manage → Triggers.
-    
-    ![image.png](image%20145.png)
-    
-    ![image.png](image%20146.png)
     
 
 Gracias al nombre dinámico, cada ejecución genera un archivo diferente.
@@ -1743,4 +1687,3 @@ Para esta primera práctica se recomienda una **carga completa**, porque:
 
 ## Arquitectura final implementada
 
-![image.png](image%20147.png)
