@@ -1234,7 +1234,7 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     > 
 7. Ejecuta **Validate all** y finalmente **Publish all**.
     
-    ![image.png](image%20106.png)
+
     
     > Esta parametrización permite que cada ejecución genere una carpeta y un archivo distintos.
     > 
@@ -1245,11 +1245,11 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
 
 1. En **Author**, seleccionar **Pipelines**.
     
-    ![image.png](image%20107.png)
+
     
 2. Pulsar en `…` y luego New pipeline
     
-    ![image.png](image%20108.png)
+
     
 3. En el panel derecho, cambia el nombre a:
     
@@ -1257,11 +1257,11 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     pl_sql_ventas_to_adls_raw
     ```
     
-    ![image.png](image%20109.png)
+
     
 4. Añadir la actividad Copy. En el panel **Activities busca `Copy data`:**
     
-    ![image.png](image%20110.png)
+
     
 5. Arrástra “Copy data” al lienzo. Selecciona la actividad y, en la pestaña **General**, cambia su nombre a: `cp_vw_ventas_to_raw`
     
