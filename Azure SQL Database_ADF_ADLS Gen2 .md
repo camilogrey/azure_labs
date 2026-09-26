@@ -1157,8 +1157,9 @@ y verifica que aparecen las filas de `etl.vw_ventas_extraccion`.
     
 11. Pulsar en Publish y esperar que salga: `Publishin complete`
     
+>![Crear dataset en el Origen](Az_sql_db_img/15.Crear%20el%20dataset%20de%20origen.png)
 
-    
+>![Publicacion del data set en el origen](Az_sql_db_img/16.Publicado%20el%20dataset.png)   
 
 ---
 
@@ -1240,6 +1241,11 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     > 
 
 ---
+
+>![Crear dataset en el Destino](Az_sql_db_img/17.%20Dataset%20de%20destino%20publicado.png)
+
+
+>![Parametros del dataset de destino ya publicado](Az_sql_db_img/18.%20Parametro%20del%20dataset%20de%20Destino%20ya%20publicado.png)
 
 ### Fase 10. Crear el pipeline
 
