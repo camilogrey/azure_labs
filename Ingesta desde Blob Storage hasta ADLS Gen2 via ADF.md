@@ -21,6 +21,8 @@
 
 Usa la misma región para todos los recursos del laboratorio.
 
+![Creacion del grupo de recursos](Blob_DF_DLake_img/1.%20Grupo%20de%20recursos%203%20creado.png) 
+
 # **Fase 3. Crear Azure Blob Storage como origen**
 
 ## **Paso 1. Crear la cuenta**
@@ -50,7 +52,7 @@ Usa la misma región para todos los recursos del laboratorio.
 5. Para el laboratorio, permite acceso de red público desde todas las redes.
 6. Selecciona **Review + create** y después **Create**.
 
-
+![Creacion de la cuenta de almacenamiento blob (ORIGEN) dentro del grupo de recursos](Blob_DF_DLake_img/2.%20creacion%20del%20storage%20acount%20blob%20asociada%20al%20grupo%20de%20recursos%203.png) 
 
 ## **Paso 2. Crear el contenedor**
 
@@ -68,6 +70,8 @@ Usa la misma región para todos los recursos del laboratorio.
 
     
 5. Selecciona **Create**.
+
+![Creacion de un contenedor dentro del blob storage ](Blob_DF_DLake_img/3.%20creacion%20de%20un%20contenedro%20dentro%20del%20l%20acuenta%20del%20blob%20storage.png) 
 
 ## **Paso 3. Subir los archivos**
 
@@ -99,6 +103,7 @@ historico/
 
 
 ---
+![Subir los archivos historicos CSV desde local al contenedor Blob. Origen. ](Blob_DF_DLake_img/4.%20Subidos%20los%20CSV%20hostoricos%20al%20contenedor%20de%20blob%20storage.png) 
 
 # **Fase 4. Crear ADLS Gen2 como destino**
 
@@ -128,6 +133,7 @@ historico/
 5. Para el laboratorio, permite acceso de red público desde todas las redes.
 6. Selecciona **Review + create** y después **Create**.
     
+![Creacion del Data Lake Storage Gen2. DESTINO](Blob_DF_DLake_img/1.%20Grupo%20de%20recursos%203%20creado.png) 
 
 ## **Paso 2. Crear el file system**
 
@@ -150,7 +156,7 @@ historico/
     
     ADF creará las subcarpetas de fecha y ejecución.
     
-
+![Creacion de la estructura inicial de DLS. Destino](Blob_DF_DLake_img/6.%20Creacion%20de%20la%20estructura%20inicial%20del%20data%20lake%20.png) 
 
 # **Fase 5. Crear Azure Data Factory**
 
@@ -171,12 +177,18 @@ historico/
     
     
 6. Cuando termine el despliegue, selecciona **Launch Studio**.
-    
+
+![Creacion de la instancia de Data Factory](Blob_DF_DLake_img/7.%20Creacion%20del%20data%20factory%20V2.png)     
+
+![Lanzameinto de la instancia de Data Factory](Blob_DF_DLake_img/8.%20lanzamiento%20del%20data%20factory.png)     
+
 
 # **Fase 6. Autorizar la identidad administrada de ADF**
 
 > Un **Linked Service** representa la conexión. La **Managed Identity** es el mecanismo de autenticación usado por esa conexión.
 > 
+
+
 
 ## **Paso 1. Permiso de lectura en el origen**
 
@@ -200,6 +212,9 @@ historico/
     
 7. Confirma la asignación.
 
+![Autorizar la identidad adminstrada de DF sobre el Blob de Origen](Blob_DF_DLake_img/9.%20Autorizar%20la%20identidad%20administrada%20del%20Data%20factory%20desde%20el%20almacenamienot%20de%20ORIGEN%20blob%20storage.png)     
+
+
 ## **Paso 2. Permiso de escritura en el destino**
 
 1. Abre `stadlspractica3`.
@@ -215,6 +230,15 @@ historico/
 
 > Para este laboratorio, la asignación se realiza a nivel de cuenta. En producción conviene limitar el acceso al contenedor o directorio necesario y complementar con ACL de ADLS Gen2.
 > 
+
+![Buscamos el rol que le dara los permisos como "Storage Blob Data Contributor" sobre el Blob ](Blob_DF_DLake_img/10.%20Buscar%20el%20role%20que%20le%20da%20permiso%20de%20lectura%20en%20el%20origen%20a%20DF.png) 
+
+![Seleccionamos las identidades de DF a las cuales se les dara permiso](Blob_DF_DLake_img/11.%20Seleccionams%20las%20identidades%20a%20qñas%20cuales%20se%20les%20dara%20los%20permimos%20previamente%20seleccionados.png)
+
+![Seleccionamos la instancia de DF correspondiente](Blob_DF_DLake_img/12.%20seleccinada%20la%20cuanta%20de%20data%20factory%20correspondiente.png)
+
+![Creamos el rol y le damos los permisos de leeer el Origen](Blob_DF_DLake_img/13.%20Creamos%20el%20role%20y%20le%20damos%20permidos%20a%20DF%20para%20leer%20al%20DL%20de%20destino.png) 
+
 
 # **Fase 7. Crear el Linked Service del Blob Storage de origen**
 
@@ -244,7 +268,9 @@ Storage account name: stblobpractica3
 2. Debe aparecer **Connection successful**.
 3. Selecciona **Create**.
     
-    
+![Testamos la conexion con el linked service o servicio vinculado a crear, un componenet de seguridad para conectar DF con el Blob](Blob_DF_DLake_img/14.%20testeada%20la%20conexion%20del%20linked%20service%20blob%20storage%20de%20FB%20con%20el%20AZ%20blob%20storage%20.png) 
+
+![Creado el link service o puente entre DF y el Blob de Origen](Blob_DF_DLake_img/15.%20Creado%20el%20link%20service.png) 
 
 # **Fase 8. Crear el Linked Service de ADLS Gen2**
 
@@ -268,6 +294,12 @@ Storage account name: stblobpractica3
     
 5. Selecciona **Test connection**.
 6. Selecciona **Create**.
+
+![Creamos el link service de DF y el Data Lake Storage de Destino](Blob_DF_DLake_img/16.%20Creamos%20un%20linked%20service%20de%20DF%20esta%20vez%20con%20un%20dala%20lake%20para%20el%20destino.png) 
+
+
+![Testeamos la conexion del link service entre DF y DLS Destino](Blob_DF_DLake_img/17.%20testamos%20la%20conexion%20del%20liked%20service%20con%20el%20data%20lake%20destino.png) 
+
 
 # **Fase 9. Crear el dataset Binary de origen**
 
@@ -307,6 +339,14 @@ Usaremos el formato **Binary** para que ADF copie los bytes de los archivos si
 
 > No se importa esquema porque un dataset Binary no interpreta columnas.
 > 
+
+![Creamos el data set para que solo transfiera los datso, no haga trasnformacion o parsing, hecho que lo hace eficiente](Blob_DF_DLake_img/18.%20Creamos%20el%20dataset%20para%20que%20DF%20copie%20los%20bytes%20de%20los%20archivos%20sin%20analizar%20o%20reescribirlo.png)
+
+![Elegimos el formato binario](Blob_DF_DLake_img/19.%20Dataset%20en%20formato%20binary.png)
+
+![Realizamos la su configuracion con el link service](Blob_DF_DLake_img/20.%20realizamos%20la%20configuracion%20del%20dataset%20con%20el%20linked%20service.png)
+
+![Revisamos que podamos ver los archivos CSV en el Blob de Origen](Blob_DF_DLake_img/21.%20revisaemos%20y%20podemos%20ver%20el%20blob%20de%20origen%20medianete%20el%20linked%20service%20.png)
 
 # **Fase 10. Crear el dataset Binary de destino**
 
@@ -350,6 +390,8 @@ Usaremos el formato **Binary** para que ADF copie los bytes de los archivos si
 
 > El nombre de cada archivo se conservará desde el origen.
 > 
+
+![Creamos el dataset binario de destino. (Modo Binary: Data Factory no lee el contenido del archivo. Toma el bloque de info comprimido o sin comprimir y lo transfiere al destino)](Blob_DF_DLake_img/22.%20crear%20el%20dataset%20binario%20de%20destino%20esta%20vez%20con%20AZ%20data%20lake%20%20storage%20.png)
 
 # **Fase 11. Crear el pipeline**
 
