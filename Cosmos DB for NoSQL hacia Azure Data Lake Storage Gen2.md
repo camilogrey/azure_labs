@@ -1715,7 +1715,9 @@ raw/eventos/
 └── fecha_carga=2026-07-02/
     └── eventos_20260702_020000.json
 ```
+![Creacion del trigger](cosmos_Nosql_img/29.%20Procedemos%20a%20la%20creacion%20dle%20trigger.png)
 
+![Trigger ejecutado con exito](cosmos_Nosql_img/30.%20Trigger%20ejecutado%20con%20exito.png)
 ---
 
 # **Monitorización de ejecuciones automáticas**
@@ -1766,6 +1768,8 @@ pl_cosmos_eventos_to_adls_raw
 - `Cancelled`: la ejecución se canceló.
 
 ---
+
+![Pipe runs](cosmos_Nosql_img/31.%20Comporbacion%20del%20pipeline%20run%20output.png)
 
 ## **Revisar el detalle de Copy**
 
