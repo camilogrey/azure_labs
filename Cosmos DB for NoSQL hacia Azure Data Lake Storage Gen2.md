@@ -1230,8 +1230,11 @@ o seleccionar la cuenta desde la suscripción.
         Publish all
         ```
         
-        
+![Creado y publicado un dataset de Origen](cosmos_Nosql_img/17.%20creado%20y%20publicado%20el%20Dataset%20de%20Origen%20en%20CosmosDB.png)         
 
+
+
+![Azure Data Factory Studio](cosmos_Nosql_img/18.%20Creamos%20nuevo%20dataset%20en%20destino%20Dat%20Lake%20en%20formato%20JSON.png)
 ---
 
 # **Fase 9. Crear el dataset de destino**
@@ -1299,7 +1302,14 @@ En **File name**, seleccionar **Add dynamic content** e introducir: `@dataset
 2. corregir cualquier error;
 3. seleccionar **Publish all**.
     
-    
+ 
+![Creamos dataset de destino DL en formto Json](cosmos_Nosql_img/18.%20Creamos%20nuevo%20dataset%20en%20destino%20Dat%20Lake%20en%20formato%20JSON.png)   
+
+
+![Creamos los parametros del dataset](cosmos_Nosql_img/19.%20creamos%20los%20parametros%20del%20dataset%20de%20destino%20en%20DL.png)
+
+
+![Parametrizamos la ruta de conexion del dataset](cosmos_Nosql_img/20.%20parametrizamos%20la%20ruta%20del%20dataset%20en%20connexion.png)
 
 # **Fase 10. Crear el pipeline**
 
@@ -1453,6 +1463,10 @@ File pattern: Set of objects
 
 El patrón `Set of objects` produce un documento por línea.
 
+![Azure Data Factory Studio](cosmos_Nosql_img/21.%20Pipeline%20es%20creado%20se%20agrega%20una%20activida%20de%20copiado%20y%20se%20configura%20el%20origen%20com%20se%20desea%20la%20trasferencia%20en%20raw%20no%20queremos%20que%20detecte%20datos%20tipo%20datetime.png)
+
+![Configuramos el destino Sink](cosmos_Nosql_img/22.%20configuramos%20el%20destino%20sink%20y%20sus%20parametros%20de%20directorio%20y%20archivo%20y%20file%20patern%20set%20objects%20que%20poduce%20un%20docuemtno%20por%20linea.png)
+ 
 ---
 
 ## **Paso 7. Validar el pipeline**
@@ -1585,6 +1599,8 @@ Después de confirmar que funciona:
 3. Confirmar con **Publish**.
 
 
+![Validamos y ejecutamos el pipeline](cosmos_Nosql_img/23.%20Validamos%20y%20ejecutamos%20el%20pipeline%20y%20nos%20muestra%20la%20transfrencia%20exitosa%20de%20las%2030%20primeras%20lineas%20porgramadas%20en%20el%20sink.png)
+
 # **Fase 11. Verificar el archivo en ADLS Gen2**
 
 1. Abrir la cuenta de almacenamiento.
@@ -1614,8 +1630,10 @@ Después de confirmar que funciona:
     
     
 7. Comprobar que contiene documentos JSON.
-    
-    
+
+![verificamos en la ruta del datalake el archivo trasferido](cosmos_Nosql_img/26.5%20verificamos%20que%20la%20lectura%20y%20escritura%20de%20prueba%20este%20en%20nuestr%20datalake%20de%20Destino.png)   
+ 
+![Confirmacion de lectura y escritura](cosmos_Nosql_img/27.%20Validacion%20en%20destino%20data%20lake%20Preview%20de%20los%20datos%20trasnferidos%20en%20json.png)   
 
 ---
 
@@ -1638,7 +1656,7 @@ Rows read: 30
 Rows copied: 30
 Status: Succeeded
 ```
-
+![Confirmacion de lectura y escritura](cosmos_Nosql_img/24.%20confirmacion%20de%20la%20lectura%20y%20escritura%20de%20prueba.png)   
 ---
 
 # **Crear un trigger programado**
