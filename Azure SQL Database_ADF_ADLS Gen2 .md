@@ -1371,9 +1371,31 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     
 19. Después de comprobar que funciona: `Vallidate all → Publish all`
 
+>![Creamos un pipeline y le asignamos un copy data de actividad](Az_sql_db_img/19.%20Creamos%20un%20pipeline%20y%20le%20asignamos%20un%20copy%20data%20como%20actividad%20.png)
+
+>![Le asginamos un nombre al copy data de actividad y configuramos el origen y destino](Az_sql_db_img/20.%20Asignamos%20un%20nombre%20al%20copy%20data%20y%20debemos%20configurar%20el%20origen%20SOURCE%20y%20el%20destino%20SINK.png)
+
+
+>![Configuramos el origen Source](Az_sql_db_img/21.%20configuramos%20el%20source%20conectando%20el%20dataset%20de%20Origen%20Azure%20SQL%20Database%20y%20usamoe%20una%20consulta%20para%20copiar%20las%2030%20filas%20de%20la%20vista%20y%20añadirá%20a%20cada%20una%20la%20fecha%20y%20hora%20UTC%20de%20extracción.png)
+
+>![Configuramos el destino](Az_sql_db_img/22.%20configuramos%20el%20destino%20anañiedo%20contenido%20dinamico.png)
+
+
+>![Configuramos el Mapping e importamos el esquema](Az_sql_db_img/23.%20en%20Mapping%20importamos%20los%20esquemas.png)
+
+
+>![verificams que en el esquema esten las tablas de origen y destino y las fechas de extraccion](Az_sql_db_img/24.%20importados%20los%20esquemas%20y%20la%20fecha%20de%20extraccion%20configurado%20en%20el%20sink%20mediante%20codigo%20SQL.png)
+
+
+>![Validamos nuetrso pipeline](Az_sql_db_img/25.%20Validamos%20nuestro%20pipeline.png)
+
+
+>![Hacemos el debug de nuetro pipeliney que corra exitosamente](Az_sql_db_img/26.%20Hacemos%20el%20debug%20de%20nuestro%20pipeline%20y%20vemos%20el%20mensaje%20de%20exitoso.png)
+
 ---
 
 ---
+
 
 ## Fase 11. Verificar el archivo en ADLS Gen2
 
@@ -1406,8 +1428,17 @@ Este dataset representará el archivo CSV que Azure Data Factory escribirá dent
     
     O si lo quieres descargar en csv y vsualizarlo en excel o vscode:
     
-    
+>![vamos a la cuenta de almacenamiento](Az_sql_db_img/27.%20vamos%20a%20recurso%20de%20la%20cuneta%20de%20almacenamiento%20del%20ejercicio%20.png)
 
+>![Buscamos nuetrso Data Lake](Az_sql_db_img/28.%20Buscamos%20el%20datalake%20storage.png)
+
+>![Abrimos el contenedor dentor de nuestro data lake](Az_sql_db_img/29.%20Abrimos%20el%20contenedor%20datalake.png)
+
+>![Comprobamos la transferencia del archivo a nuetro data lake desde el origen](Az_sql_db_img/30.%20comporbamos%20la%20existencia%20del%20archivo%20ventas_202%20en%20nuestro%20datalake.png)
+
+>![Descargamos el archivo de ventas para su verificacion](Az_sql_db_img/31.%20descargamos%20el%20archivo%20ventas%20para%20verificar%20el%20archivo.png)
+
+>![vemos el preview del archivo](Az_sql_db_img/32.%20podemos%20ver%20un%20preview%20del%20archivo%20marcado%20edit.png)
 ---
 
 ## Validación entre origen y destino
@@ -1424,6 +1455,7 @@ Resultado esperado:
 ```
 30
 ```
+>![Comprobamos el nuemro de filas mediante una consulta en SQL database](Az_sql_db_img/34.%20Comprobacionde%20filas%20en%20file%20de%20destino%20mediante%20una%20consulta%20en%20SQL%20database.png)
 
 ## Validación en ADF
 
@@ -1434,6 +1466,8 @@ Rows read: 30
 Rows copied: 30
 ```
 
+>![Comprobacion desde el Monitor de Data Factory en la seccion debug](Az_sql_db_img/35.%20Comprbacion%20desde%20el%20monitor%20de%20DFactory%20en%20la%20seccion%20Debug.png)
+
 ## Validación en el archivo
 
 El CSV debe contener:
@@ -1442,6 +1476,7 @@ El CSV debe contener:
 1 fila de encabezados
 30 filas de datos
 ```
+>![Archivo descargado](Az_sql_db_img/1.%20ventas_20260926_183742.csv)
 
 ---
 
@@ -1488,6 +1523,13 @@ raw/ventas/
 
 También podrás revisar sus ejecuciones en: `Monitor -> Trigger runs`
 
+>![Creamos el trigger](Az_sql_db_img/36.%20procede%20a%20crear%20un%20trigger%20en%20el%20pìpeline.png)
+
+
+>![Configuramos el trigger](Az_sql_db_img/37.%20Configuramos%20el%20trigger%20en%20el%20pipeline.png)
+
+
+>![trigger creado se pone nombre dimamino para que cada vez que corra cambi de nombre](Az_sql_db_img/38.%20Trigger%20creado%20sepone%20nombre%20dinamico%20para%20que%20cada%20actualizacion%20tenga%20un%20nombre%20diferente%20.png)
 ---
 
 ## Monitorización de ejecuciones automáticas
@@ -1655,7 +1697,7 @@ raw/ventas/
 
 En esta práctica se utiliza una vista desnormalizada porque el objetivo es trabajar un flujo sencillo:
 
-![image.png](79e8118e-3b5a-4f33-9402-d72950b1f645.png)
+
 
 La vista:
 
