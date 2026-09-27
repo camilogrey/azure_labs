@@ -1547,6 +1547,10 @@ Para comprobar el resultado de la ejecución:
 3. Seleccionar **Pipeline runs**.
 4. Abrir la pestaña **Triggered**.
 
+![trigger programado y ejecutado](Az_sql_db_img/100.%20Trigger%20programado%20ejecutado.png)
+
+![Trigger ejecutado con exito](Az_sql_db_img/101.%20trigger%20exitoso.png)
+
 > La pestaña **Debug** muestra únicamente las ejecuciones de prueba iniciadas desde el editor mediante el botón **Debug**.
 > 
 > 
