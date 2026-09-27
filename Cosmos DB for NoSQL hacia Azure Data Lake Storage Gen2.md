@@ -1028,6 +1028,8 @@ También puede configurarse una **ACL predeterminada** en `raw/eventos/` para qu
 
 </aside>
 
+![Autorizacion a DF de cear y escribir directorios y blobs en Destino DL](cosmos_Nosql_img/11.%20Autorizacion%20a%20Data%20factory%20de%20DLS%20Gen2%20destino%20de%20crear%20directorios%20archivos%20escribir%20actualizar%20y%20eliminar%20blobs%20.png) 
+
 # **Fase 6. Crear el Linked Service de Azure Cosmos DB**
 
 > Un Linked Service define la conexión entre Data Factory y un servicio externo. En esta fase se crea la conexión con la fuente.
@@ -1163,6 +1165,14 @@ o seleccionar la cuenta desde la suscripción.
 9. Seleccionar **Create**.
 10. Luego Vallidate All y despues Publish all.
 
+![Crear un linked service Cosmos db Origen](cosmos_Nosql_img/12.%20Crear%20un%20linked%20service%20Cosmos%20bd%20para%20NOSQLen%20DF.png) 
+
+![Creado el link servoce satisfactoriamente ](cosmos_Nosql_img/13.%20Creado%20el%20linked%20service%20satisfactoriamente%20.png) 
+
+![Crear un linked service de DF para el destino DL ](cosmos_Nosql_img/14.%20Crear%20un%20crear%20un%20linked%20service%20para%20el%20data%20lake%20Origen%20desde%20DF.png) 
+
+
+![Creado y validado linked service para el destino](cosmos_Nosql_img/16.%20Validado%20y%20publicado%20el%20linked%20service%20con%20el%20data%20lake.png) 
 
 # **Fase 8. Crear el dataset de origen**
 
