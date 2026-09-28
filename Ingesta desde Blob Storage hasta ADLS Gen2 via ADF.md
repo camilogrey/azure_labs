@@ -658,6 +658,13 @@ Después de una ejecución correcta:
     - no se han añadido ni eliminado columnas;
     - los nombres de archivo no han cambiado.
 
+![Revisamos el container de destino del DL](Blob_DF_DLake_img/26.%20Vemos%20el%20DL%20en%20el%20container%20de%20destino%20los%20datos.png)
+
+![Los 3 archivo de ventas](Blob_DF_DLake_img/27.%20Los%203%20archivos%20de%20ventas%20estan.png)
+
+![Comprobamos en la apertura de un documento](Blob_DF_DLake_img/28.%20comprobacion%20de%20que%20la%20infomacion%20se%20transfirio%20sin%20modificaciones.png)
+
+
 # **Fase 15. Ejecutar como carga histórica**
 
 Esta práctica representa una carga histórica puntual. La opción recomendada es:
@@ -676,6 +683,11 @@ Esta práctica representa una carga histórica puntual. La opción recomendada e
 > - un trigger basado en eventos de Blob Storage;
 > - un proceso de archivo o cuarentena;
 > - una tabla de control de archivos ya procesados.
+
+![Añadimos un Trigger Now como si estuvieramos en produccion](Blob_DF_DLake_img/29.%20Añadimos%20un%20trigger%20now.png)
+
+
+![Ejecucion del trigger](Blob_DF_DLake_img/30.%20ejecucion%20del%20trigger%20now.png)
 
 # **Fase 16. Monitorización**
 
@@ -797,3 +809,9 @@ Esta práctica representa una carga histórica puntual. La opción recomendada e
     	}
     }
     ```
+
+    ![Resultado del Trigger en pipeline runs](Blob_DF_DLake_img/31.%20vemos%20el%20resultado%20del%20triggre%20now%20en%20monitor%20pipeline%20runs.png)
+
+    ![Detalles de ejecucion del trigger](Blob_DF_DLake_img/32.%20detalles%20de%20la%20ejecucion%20del%20trigger.png)
+
+    ![Verificacion del Output](Blob_DF_DLake_img/33.%20verificacion%20el%20output%20.png)
