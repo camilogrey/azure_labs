@@ -494,6 +494,8 @@ El patrón `ventas_*.csv` seleccionará los tres archivos.
 
 En una copia Binary no existe mapeo de columnas. La ausencia de Mapping confirma que no se están transformando los datos.
 
+![Creamos el pipeline y su confoguracion de conexion, funete y destino)](Blob_DF_DLake_img/23,%20Creacion%20del%20pipeline.png)
+
 # **Fase 12. Validar y ejecutar en modo Debug**
 
 1. Selecciona **Validate all**.
@@ -605,6 +607,12 @@ Throughput
 
 Una copia Binary no suele mostrar `Rows read` y `Rows copied`, porque ADF no interpreta las filas.
 
+![Ejecutamos el pipeline con la opcion Debug satisfactoriamente)](Blob_DF_DLake_img/24.%20Ejecutamos%20el%20pipeline%20con%20resultado%20satisfactorio.png)
+
+![Output de la ejecucion del pipeline](Blob_DF_DLake_img/25.%20Output%20de%20la%20ejecucion%20del%20pipeline.png)
+
+
+
 # **Fase 13. Publicar**
 
 Después de una ejecución correcta:
@@ -615,6 +623,7 @@ Después de una ejecución correcta:
 
 > La publicación guarda el pipeline, datasets y Linked Services como versión desplegada.
 > 
+
 
 # **Fase 14. Verificar los archivos en ADLS Gen2**
 
